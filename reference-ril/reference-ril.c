@@ -42,7 +42,7 @@
 /* pathname returned from RIL_REQUEST_SETUP_DATA_CALL / RIL_REQUEST_SETUP_DEFAULT_PDP */
 #define PPP_TTY_PATH "/dev/omap_csmi_tty1"
 #define PATH_ACTIVATIONRECORD "/system/lib/wildcard_record.plist"
-
+//#define PATH_ACTIVATIONRECORD "/data/wildcard_record.plist" //This is the correct one, i need to finish the push of a system.img to use it.  i've got the rest of the wildcard copy code done, not sure where to put it.
 #ifdef USE_TI_COMMANDS
 
 // Enable a workaround
@@ -2328,7 +2328,7 @@ const RIL_RadioFunctions *RIL_Init(const struct RIL_Env *env, int argc, char **a
 
     s_rilenv = env;
 
-    Platform = IPHONE_2G; //FIXME: This doesn't change to 3G for me so I changed it to Platform=IPHONE_3G when I used it. --nord
+    Platform = IPHONE_3G;
     while ( -1 != (opt = getopt(argc, argv, "p:d:s:3"))) {
         switch (opt) {
             case 'p':
